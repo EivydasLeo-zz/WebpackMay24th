@@ -12,6 +12,7 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true, // isvalom pries tai dist buvusius failus
+    assetModuleFilename: "images/[name][ext]", // nurodom paveiksleliu talpinimo vieta
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -20,6 +21,11 @@ module.exports = {
   },
   module: {
     rules: [
+      // img loader
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
       // css loader
       {
         test: /\.css$/i, // pritaikom .css failam
