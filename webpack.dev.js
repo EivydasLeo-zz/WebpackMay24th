@@ -13,6 +13,11 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true, // isvalom pries tai dist buvusius failus
   },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    // compress: true,
+    port: 8080,
+  },
   module: {
     rules: [
       // css loader
